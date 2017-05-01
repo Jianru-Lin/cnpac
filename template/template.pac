@@ -1,6 +1,6 @@
 function FindProxyForURL(url, host) {
 	if (!isResolvable(host)) {
-		return "DIRECT"
+		return #PROXY#
 	}
 
 	var resolved_host = dnsResolve(host)
@@ -18,6 +18,7 @@ function FindProxyForURL(url, host) {
 		if (/google/i.test(url)) return true
 		if (/youtube/i.test(url)) return true
 		if (/facebook/i.test(url)) return true
+		if (/fbcdn/i.test(url)) return true
 		if (/twitter/i.test(url)) return true
 
 		// [[ip,mask],...]
