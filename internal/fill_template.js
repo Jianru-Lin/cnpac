@@ -5,7 +5,13 @@ module.exports = function(template, cn_ipv4_records) {
 	
 	var proxy = 'PROXY p1.miaodeli.com:38000'
 	var special_list = []
-	var local_list = []
+	var local_list = [
+		['127.0.0.0', '255.0.0.0'],
+		['169.254.0.0', '255.255.0.0'],
+		['10.0.0.0.', '255.0.0.0'],
+		['172.16.0.0', '255.240.0.0'],
+		['192.168.0.0', '255.255.0.0']
+	]
 	var cn_list = cn_ipv4_records.map(make_ip_range)
 
 	return template.replace(/#PROXY#/g, JSON.stringify(proxy))
